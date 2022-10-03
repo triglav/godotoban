@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://co6t8jx3an7ia"]
+
+[ext_resource type="Script" path="res://game.gd" id="1_0lw2p"]
+[ext_resource type="PackedScene" uid="uid://csae2sycqvgmn" path="res://gui/pause_menu.tscn" id="2_7jf82"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_0lw2p")
+levels_dir = "res://levels_test"
+
+[node name="PauseMenu" parent="." instance=ExtResource("2_7jf82")]
+visible = false
+
+[connection signal="quit" from="PauseMenu" to="." method="_on_pause_menu_quit"]
+[connection signal="restart" from="PauseMenu" to="." method="_on_pause_menu_restart"]
+[connection signal="resume" from="PauseMenu" to="." method="_on_pause_menu_resume"]

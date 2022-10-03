@@ -1,0 +1,82 @@
+[gd_scene load_steps=4 format=3 uid="uid://dny3pm3iljg1d"]
+
+[ext_resource type="Script" path="res://gui/main_menu.gd" id="1_ao721"]
+[ext_resource type="Theme" uid="uid://ctdkt0xgo2snw" path="res://gui/menu_theme.tres" id="1_ep4v8"]
+[ext_resource type="Texture2D" uid="uid://c8omrh0i0fqm8" path="res://assets/icon_color.svg" id="2_gk3pj"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ao721")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -69.0
+offset_right = 69.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="GodotTextureRect" type="TextureRect" parent="VBoxContainer"]
+layout_mode = 2
+offset_top = 45.0
+offset_right = 210.0
+offset_bottom = 250.0
+texture = ExtResource("2_gk3pj")
+stretch_mode = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+offset_top = 254.0
+offset_right = 210.0
+offset_bottom = 426.0
+theme_override_constants/margin_bottom = 100
+
+[node name="SokobanLabel" type="Label" parent="VBoxContainer/MarginContainer"]
+layout_mode = 2
+offset_right = 210.0
+offset_bottom = 72.0
+theme_override_font_sizes/font_size = 50
+text = "Sokoban"
+horizontal_alignment = 1
+
+[node name="StartButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+offset_top = 430.0
+offset_right = 210.0
+offset_bottom = 485.0
+focus_neighbor_top = NodePath("../QuitButton")
+mouse_default_cursor_shape = 2
+theme = ExtResource("1_ep4v8")
+text = "Start"
+
+[node name="OptionsButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+offset_top = 489.0
+offset_right = 210.0
+offset_bottom = 544.0
+mouse_default_cursor_shape = 2
+theme = ExtResource("1_ep4v8")
+text = "Options"
+
+[node name="QuitButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+offset_top = 548.0
+offset_right = 210.0
+offset_bottom = 603.0
+focus_neighbor_bottom = NodePath("../StartButton")
+mouse_default_cursor_shape = 2
+theme = ExtResource("1_ep4v8")
+text = "Quit"
+
+[connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

@@ -1,0 +1,53 @@
+[gd_scene load_steps=3 format=3 uid="uid://blkyl4yykm1ih"]
+
+[ext_resource type="Script" path="res://gui/complete_screen.gd" id="1_2tq34"]
+[ext_resource type="Texture2D" uid="uid://c8omrh0i0fqm8" path="res://assets/icon_color.svg" id="2_gk3pj"]
+
+[node name="CompleteScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2tq34")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -69.0
+offset_right = 69.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="GodotTextureRect" type="TextureRect" parent="VBoxContainer"]
+offset_top = 59.0
+offset_right = 616.0
+offset_bottom = 264.0
+texture = ExtResource("2_gk3pj")
+stretch_mode = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+offset_top = 268.0
+offset_right = 616.0
+offset_bottom = 440.0
+theme_override_constants/margin_bottom = 100
+
+[node name="SokobanLabel" type="Label" parent="VBoxContainer/MarginContainer"]
+offset_right = 616.0
+offset_bottom = 72.0
+theme_override_font_sizes/font_size = 50
+text = "Sokoban"
+horizontal_alignment = 1
+
+[node name="NoLevelsLabel" type="Label" parent="VBoxContainer"]
+offset_top = 444.0
+offset_right = 616.0
+offset_bottom = 588.0
+theme_override_font_sizes/font_size = 50
+text = "Well done!
+There are no more levels."
+horizontal_alignment = 1
