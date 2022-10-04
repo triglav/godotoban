@@ -6,7 +6,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_ibxnn"]
 radius = 30.0
 
-[node name="Player" type="Area2D"]
+[node name="Player" type="Area2D" groups=["player"]]
 collision_layer = 4
 collision_mask = 7
 script = ExtResource("1_envte")

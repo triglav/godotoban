@@ -4,7 +4,7 @@ extends Node2D
 var levels: PackedStringArray
 @export var current_level_idx = 0
 var current_level = null
-
+@onready var game_hud = $GameHud
 
 func _ready() -> void:
 	levels = _discover_levels()
@@ -34,6 +34,8 @@ func _load_level(idx):
 	current_level = load(levels[idx]).instantiate()
 	add_child(current_level)
 	current_level.level_complete.connect(_on_level_complete)
+	current_level.move_count_change.connect(game_hud.update_move_count)
+	game_hud.reset()
 
 
 func _on_level_complete():

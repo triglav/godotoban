@@ -19,6 +19,9 @@ var animations = {
 @onready var animated_sprite : = $AnimatedSprite2d
 @onready var ray : = $RayCast2d
 
+signal moved
+
+
 var tween: Tween
 
 
@@ -52,3 +55,4 @@ func walk(dir, duration) -> void:
 	tween = create_tween()
 	tween.tween_property(self, "position", inputs[dir] * TILE_SIZE, duration).as_relative()
 	tween.tween_callback(animated_sprite.stop)
+	moved.emit()
