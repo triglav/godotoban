@@ -1,0 +1,75 @@
+[gd_scene load_steps=5 format=3 uid="uid://dtksb2ginrn57"]
+
+[ext_resource type="Theme" uid="uid://ctdkt0xgo2snw" path="res://gui/menu_theme.tres" id="1_80b0c"]
+[ext_resource type="Script" path="res://gui/level_menu/level_button.gd" id="1_h88vt"]
+[ext_resource type="Texture2D" uid="uid://db8x5ub8cbfxf" path="res://assets/icons/star.png" id="1_hylub"]
+[ext_resource type="Texture2D" uid="uid://dw3vncypig05r" path="res://assets/icons/locked.png" id="4_2kckx"]
+
+[node name="LevelButton" type="Control"]
+custom_minimum_size = Vector2i(150, 158)
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_h88vt")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+offset_right = 150.0
+offset_bottom = 104.0
+size_flags_horizontal = 3
+theme = ExtResource("1_80b0c")
+theme_override_constants/outline_size = 15
+theme_override_font_sizes/font_size = 70
+text = "10"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+offset_top = 108.0
+offset_right = 150.0
+offset_bottom = 158.0
+theme_override_constants/separation = 0
+
+[node name="Star1" type="TextureRect" parent="VBoxContainer/HBoxContainer"]
+modulate = Color(0.733333, 0.584314, 0, 1)
+offset_right = 50.0
+offset_bottom = 50.0
+texture = ExtResource("1_hylub")
+
+[node name="Star2" type="TextureRect" parent="VBoxContainer/HBoxContainer"]
+modulate = Color(0.156863, 0.156863, 0.156863, 1)
+offset_left = 50.0
+offset_right = 100.0
+offset_bottom = 50.0
+texture = ExtResource("1_hylub")
+
+[node name="Star3" type="TextureRect" parent="VBoxContainer/HBoxContainer"]
+modulate = Color(0.156863, 0.156863, 0.156863, 1)
+offset_left = 100.0
+offset_right = 150.0
+offset_bottom = 50.0
+texture = ExtResource("1_hylub")
+
+[node name="LockOverlay" type="ColorRect" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+color = Color(0.262745, 0.262745, 0.262745, 1)
+
+[node name="LockIcon" type="TextureRect" parent="LockOverlay"]
+modulate = Color(0.537255, 0.537255, 0.537255, 1)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+texture = ExtResource("4_2kckx")
+stretch_mode = 3
