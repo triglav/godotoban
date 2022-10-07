@@ -1,6 +1,7 @@
 extends Control
 
 const game_scene = preload("res://game/game.tscn")
+const level_menu = preload("res://gui/level_menu/level_menu.tscn")
 
 
 func _ready() -> void:
@@ -13,7 +14,8 @@ func _unhandled_key_input(event: InputEvent) -> void:
 
 
 func _on_start_button_pressed() -> void:
-	get_tree().change_scene_to_packed(game_scene)
+	var next_scene = game_scene if UserData.last_level == 0 else level_menu
+	get_tree().change_scene_to_packed(next_scene)
 
 
 func _on_options_button_pressed() -> void:

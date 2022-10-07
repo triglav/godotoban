@@ -4,6 +4,8 @@ extends Control
 @export_range(0, 3, 1) var stars: int = 0
 @export var locked: bool = false
 
+signal pressed(level)
+
 @onready var button = $VBoxContainer/Button as Button
 @onready var star1 = $VBoxContainer/HBoxContainer/Star1 as TextureRect
 @onready var star2 = $VBoxContainer/HBoxContainer/Star2 as TextureRect
@@ -37,3 +39,7 @@ func _update_star(star: TextureRect, lit: bool) -> void:
 func _update_locked() -> void:
 	lock_overlay.visible = locked
 	button.focus_mode = Control.FOCUS_NONE if locked else Control.FOCUS_ALL
+
+
+func _on_button_pressed() -> void:
+	pressed.emit(level)

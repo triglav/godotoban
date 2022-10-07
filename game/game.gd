@@ -1,5 +1,6 @@
 extends Node2D
 
+@export var level: int = -1
 var current_level_idx: int
 var current_level = null
 @onready var game_hud = $GameHud
@@ -7,7 +8,7 @@ var current_level = null
 @onready var builder = load("res://game/level_builder.gd").new()
 
 func _ready() -> void:
-	current_level_idx = UserData.last_level
+	current_level_idx = level if level != -1 else UserData.last_level
 	_load_level(current_level_idx)
 
 
