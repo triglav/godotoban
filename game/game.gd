@@ -1,12 +1,13 @@
 extends Node2D
 
-@export var current_level_idx: int = 0
+var current_level_idx: int
 var current_level = null
 @onready var game_hud = $GameHud
 
 @onready var builder = load("res://game/level_builder.gd").new()
 
 func _ready() -> void:
+	current_level_idx = UserData.last_level
 	_load_level(current_level_idx)
 
 
@@ -39,6 +40,7 @@ func _load_level(idx):
 
 func _on_level_complete():
 	current_level_idx += 1
+	UserData.update_last_level(current_level_idx)
 	if current_level_idx >= Constants.MAX_LEVEL:
 		get_tree().change_scene_to_file("res://gui/complete_screen.tscn")
 		return

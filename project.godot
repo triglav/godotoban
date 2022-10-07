@@ -28,6 +28,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 Constants="*res://game/constants.gd"
+UserData="*res://game/systems/user_data.gd"
 
 [input]
 
