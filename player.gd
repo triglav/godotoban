@@ -1,6 +1,5 @@
 extends Area2D
 
-const TILE_SIZE = 64
 const WALK_DURATION = 0.2
 const PUSH_DURATION = 0.4
 
@@ -39,20 +38,20 @@ func _physics_process(_delta: float) -> void:
 
 
 func move(dir) -> void:
-	ray.target_position = inputs[dir] * TILE_SIZE
+	ray.target_position = inputs[dir] * Constants.TILE_SIZE
 	ray.force_raycast_update()
 	var c = ray.get_collider()
 	if not c:
 		walk(dir, WALK_DURATION)
 	elif c.is_in_group("crates"):
 		assert(c.has_method("push"))
-		if c.push(inputs[dir] * TILE_SIZE, PUSH_DURATION):
+		if c.push(inputs[dir] * Constants.TILE_SIZE, PUSH_DURATION):
 			walk(dir, PUSH_DURATION)
 
 
 func walk(dir, duration) -> void:
 	animated_sprite.play(animations[dir])
 	tween = create_tween()
-	tween.tween_property(self, "position", inputs[dir] * TILE_SIZE, duration).as_relative()
+	tween.tween_property(self, "position", inputs[dir] * Constants.TILE_SIZE, duration).as_relative()
 	tween.tween_callback(animated_sprite.stop)
 	moved.emit()

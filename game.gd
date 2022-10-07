@@ -1,11 +1,9 @@
 extends Node2D
 
-const MAX_LEVEL = 50
-@export_range(0, 50, 1) var current_level_idx = 0
+@export var current_level_idx: int = 0
 var current_level = null
 @onready var game_hud = $GameHud
 
-const Levels = "res://levels/Sokoban.txt"
 @onready var builder = load("res://level_builder.gd").new()
 
 func _ready() -> void:
@@ -32,7 +30,7 @@ func _load_level(idx):
 	var previous_level = current_level
 	if previous_level:
 		previous_level.queue_free()
-	current_level = builder.build_level(Levels, idx)
+	current_level = builder.build_level(Constants.Levels, idx)
 	add_child(current_level)
 	current_level.level_complete.connect(_on_level_complete)
 	current_level.move_count_change.connect(game_hud.update_move_count)
@@ -41,7 +39,7 @@ func _load_level(idx):
 
 func _on_level_complete():
 	current_level_idx += 1
-	if current_level_idx >= MAX_LEVEL:
+	if current_level_idx >= Constants.MAX_LEVEL:
 		get_tree().change_scene_to_file("res://gui/complete_screen.tscn")
 		return
 	_load_level(current_level_idx)
