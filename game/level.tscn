@@ -1,7 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://ddkxhsr857bkx"]
+[gd_scene load_steps=3 format=3]
 
 [ext_resource type="TileSet" uid="uid://cyvawrbfklb5i" path="res://assets/sokoban_tile_set.tres" id="1_q3ekk"]
-[ext_resource type="Script" path="res://level.gd" id="2_5p03u"]
+[ext_resource type="Script" path="res://game/level.gd" id="2_5p03u"]
 
 [node name="Level" type="TileMap"]
 tile_set = ExtResource("1_q3ekk")

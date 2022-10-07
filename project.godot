@@ -12,7 +12,7 @@ _global_script_classes=[{
 "base": "TileMap",
 "class": &"Level",
 "language": &"GDScript",
-"path": "res://level.gd"
+"path": "res://game/level.gd"
 }]
 _global_script_class_icons={
 "Level": ""
@@ -27,7 +27,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-Constants="*res://constants.gd"
+Constants="*res://game/constants.gd"
 
 [input]
 

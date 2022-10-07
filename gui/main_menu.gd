@@ -1,6 +1,6 @@
 extends Control
 
-const game_scene = preload("res://game.tscn")
+const game_scene = preload("res://game/game.tscn")
 
 
 func _ready() -> void:

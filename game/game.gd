@@ -4,7 +4,7 @@ extends Node2D
 var current_level = null
 @onready var game_hud = $GameHud
 
-@onready var builder = load("res://level_builder.gd").new()
+@onready var builder = load("res://game/level_builder.gd").new()
 
 func _ready() -> void:
 	_load_level(current_level_idx)

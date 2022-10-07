@@ -1,6 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://butocgkdb82uo"]
+[gd_scene load_steps=4 format=3]
 
-[ext_resource type="Script" path="res://player.gd" id="1_envte"]
+[ext_resource type="Script" path="res://game/objects/player.gd" id="1_envte"]
 [ext_resource type="SpriteFrames" uid="uid://e27kiwnjci8k" path="res://assets/player_sprite_frames.tres" id="1_xsl3v"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ibxnn"]

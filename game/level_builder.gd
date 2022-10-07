@@ -1,8 +1,8 @@
 extends Node
 
-const Level = preload("res://level.tscn")
-const Player = preload("res://player.tscn")
-const Crate = preload("res://crate.tscn")
+const Level = preload("res://game/level.tscn")
+const Player = preload("res://game/objects/player.tscn")
+const Crate = preload("res://game/objects/crate.tscn")
 
 const AtlasBrickCoord = Vector2i(6, 6)
 const AtlasFloorCoord = Vector2i(11, 6)
