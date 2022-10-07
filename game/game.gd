@@ -40,7 +40,8 @@ func _load_level(idx):
 
 func _on_level_complete():
 	current_level_idx += 1
-	UserData.update_last_level(current_level_idx)
+	if current_level_idx > UserData.last_level:
+		UserData.update_last_level(current_level_idx)
 	if current_level_idx >= Constants.MAX_LEVEL:
 		get_tree().change_scene_to_file("res://gui/complete_screen.tscn")
 		return
