@@ -23,7 +23,7 @@ _global_script_class_icons={
 config/name="Godotoban"
 run/main_scene="res://gui/main_menu.tscn"
 config/features=PackedStringArray("4.0", "Mobile")
-config/icon="res://icon.svg"
+config/icon="res://icon.png"
 
 [autoload]
 
